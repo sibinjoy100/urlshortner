@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <title>URL Shortner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div id="particles">
+  <div id="intro">
+    <diV>
+    <h1>URL Shortner</h1>
+    <section class="content bgcolor-1">
+            <span class="input input--nao">
+              <input class="input__field input__field--nao urlText" type="text" id="input-1" required="true" />
+              <label class="input__label input__label--nao" for="input-1">
+                <span class="input__label-content input__label-content--nao">Your original URL here</span>
+              </label>
+              <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+              </svg>
+            </span>
+    
+          </section>
+    <!-- <p>A JavaScript plugin for snazzy background particle systems</p> -->
+    <a href="#" class="btn submit_btn">Shorten URL</a>
+  </div>
+</diV>
+</div>
+<div id="toast"><i class="fa fa-check" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i>Short URL copied</div>
+<script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
+<script type='text/javascript' src='js/jquery.particleground.js'></script>
+<script type='text/javascript' src='js/demo.js'></script>
+<script type='text/javascript' src="js/clipboard.min.js"></script>
+<script type='text/javascript' src='js/main.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.2.0/jquery-confirm.min.js"></script>
+<script type='text/javascript' src="js/classie.js"></script>
+<script>
+      (function() {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+          (function() {
+            // Make sure we trim BOM and NBSP
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function() {
+              return this.replace(rtrim, '');
+            };
+          })();
+        }
+
+        [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+          // in case the input is already filled..
+          if( inputEl.value.trim() !== '' ) {
+            classie.add( inputEl.parentNode, 'input--filled' );
+          }
+
+          // events:
+          inputEl.addEventListener( 'focus', onInputFocus );
+          inputEl.addEventListener( 'blur', onInputBlur );
+        } );
+
+        function onInputFocus( ev ) {
+          classie.add( ev.target.parentNode, 'input--filled' );
+        }
+
+        function onInputBlur( ev ) {
+          if( ev.target.value.trim() === '' ) {
+            classie.remove( ev.target.parentNode, 'input--filled' );
+          }
+        }
+      })();
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87322752-3', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+</body>
+</html>
